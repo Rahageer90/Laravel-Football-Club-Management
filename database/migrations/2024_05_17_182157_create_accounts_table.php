@@ -14,13 +14,13 @@ return new class extends Migration
         Schema::create('accounts', function (Blueprint $table) {
             $table->increments('account_id');
             $table->string('username', 50)->unique();
-            $table->string('password');
+            $table->string('password')->unique();
             $table->string('email', 100)->unique();
             $table->enum('role', ['admin', 'coach', 'player', 'physio', 'doctor']);
-            $table->timestamps();
             $table->string('name', 100)->nullable();
             $table->string('position', 100)->nullable();
             $table->string('contact_info', 100)->nullable();
+            $table->timestamps();
         });
     }
 
